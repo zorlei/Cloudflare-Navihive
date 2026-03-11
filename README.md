@@ -113,15 +113,14 @@
 
 ---
 主要的链接地址：
-
+```
 https://github.com/zqq-nuli/Cloudflare-Navihive
-
 https://bcrypt-generator.com/  哈希值粘贴到   AUTH_PASSWORD
-
 https://bcrypt.online/    32位随机字符串   AUTH_SECRET
-
+```
 
 -- 创建分组表
+```
 CREATE TABLE IF NOT EXISTS groups (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
@@ -130,8 +129,10 @@ CREATE TABLE IF NOT EXISTS groups (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 
 -- 创建站点表
+```
 CREATE TABLE IF NOT EXISTS sites (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     group_id INTEGER NOT NULL,
@@ -146,23 +147,29 @@ CREATE TABLE IF NOT EXISTS sites (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE
 );
-
+```
 -- 创建配置表
+```
 CREATE TABLE IF NOT EXISTS configs (
     key TEXT PRIMARY KEY,
     value TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 
 -- 标记数据库已初始化
+```
 INSERT INTO configs (key, value) VALUES ('DB_INITIALIZED', 'true');
+```
 
 -- 创建只读模式所需索引
+```
 CREATE INDEX IF NOT EXISTS idx_groups_is_public ON groups(is_public);
-
+```
+```
 CREATE INDEX IF NOT EXISTS idx_sites_is_public ON sites(is_public);
-
+```
 ---
 
 ## ⭐ 支持项目
