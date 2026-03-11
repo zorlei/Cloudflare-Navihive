@@ -113,11 +113,8 @@
 
 ---
 主要的链接地址：
-```
-https://github.com/zqq-nuli/Cloudflare-Navihive
 https://bcrypt-generator.com/  哈希值粘贴到   AUTH_PASSWORD
 https://bcrypt.online/    32位随机字符串   AUTH_SECRET
-```
 
 -- 创建分组表
 ```
